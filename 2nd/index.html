@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vegandocs</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.135.0/build/three.min.js"></script>
+    <style>
+      /* Add your CSS styles here */
+      .hero {
+        background: #e1f1f4;
+        padding: 50px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 40px;
+      }
+
+      .button {
+        display: inline-block;
+        background: #ff9999;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 10px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+      }
+
+      .rabbit {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        height: 400px;
+      }
+
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        margin-top: 80px;
+        padding: 0 30px;
+      }
+
+      .feature {
+        flex: 1;
+        min-width: 250px;
+        margin: 0 15px;
+        padding: 40px 30px;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .feature img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 30px;
+      }
+
+      .feature h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .feature p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+
+      .cta {
+        background: #ff9999;
+        padding: 80px;
+        text-align: center;
+      }
+
+      .cta h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .cta p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 40px;
+        color: #fff;
+      }
+
+      .cta .button {
+        background: #fff;
+        color: #ff9999;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <h1>Welcome to Vegandocs</h1>
+      <p>A website all about veganism</p>
+      <a href="#" class="button">Learn More</a>
+    </div>
+<div class="features">
+  <div class="feature">
+    <img src="https://via.placeholder.com/80" alt="Feature 1" />
+    <h2>Feature 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="feature">
+    <img src="https://via.placeholder.com/80" alt="Feature 2" />
+    <h2>Feature 2</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="feature">
+    <img src="https://via.placeholder.com/80" alt="Feature 3" />
+    <h2>Feature 3</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>Ready to get started?</h2>
+  <p>Join our community today and start your journey to a healthier, more ethical lifestyle.</p>
+  <a href="#" class="button">Join Now</a>
+</div>
+
+<script>
+  // Add your JavaScript code here
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  const geometry = new THREE.BoxGeometry();
+  const material = new THREE.MeshBasicMaterial({ color: 0xff00ff });
+  const cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
+
+  camera.position.z = 5;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+</script>
+</body>
+</html>
